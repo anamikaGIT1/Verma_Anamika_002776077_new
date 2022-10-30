@@ -2,12 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Person;
+package model;
+
+import java.util.ArrayList;
 
 /**
  *
  * @author anamikaverma
  */
-public class person {
-    
+public class House {
+    public ArrayList<person> prsn = new ArrayList<person>();
 }
