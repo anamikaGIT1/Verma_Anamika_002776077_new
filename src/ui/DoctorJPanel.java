@@ -23,7 +23,7 @@ import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
  *
- * @author anweshsingh
+ * @author anamika verma
  */
 public class DoctorJPanel extends javax.swing.JPanel {
 
@@ -58,19 +58,29 @@ public class DoctorJPanel extends javax.swing.JPanel {
         weight = new javax.swing.JTextField();
         add = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(102, 102, 255));
+
+        jLabel2.setFont(new java.awt.Font("Trattatello", 1, 18)); // NOI18N
         jLabel2.setText("Patient Name");
 
-        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 30)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 30)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Add an Encounter");
 
+        jLabel1.setFont(new java.awt.Font("Trattatello", 1, 18)); // NOI18N
         jLabel1.setText("Blood Pressure");
 
+        jLabel4.setFont(new java.awt.Font("Trattatello", 1, 18)); // NOI18N
         jLabel4.setText("Temperature in F°");
 
+        jLabel5.setFont(new java.awt.Font("Trattatello", 1, 18)); // NOI18N
         jLabel5.setText("Heart Rate");
 
+        jLabel6.setFont(new java.awt.Font("Trattatello", 1, 18)); // NOI18N
         jLabel6.setText(" Weight in lbs");
 
+        encounterTable.setBackground(new java.awt.Color(255, 255, 204));
+        encounterTable.setFont(new java.awt.Font("Trattatello", 1, 13)); // NOI18N
         encounterTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -92,12 +102,19 @@ public class DoctorJPanel extends javax.swing.JPanel {
             }
         });
 
+        bloodPressure.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bloodPressureActionPerformed(evt);
+            }
+        });
+
         temperature.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 temperatureActionPerformed(evt);
             }
         });
 
+        add.setBackground(new java.awt.Color(255, 204, 204));
         add.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         add.setText("Add Encounter");
         add.addActionListener(new java.awt.event.ActionListener() {
@@ -118,21 +135,20 @@ public class DoctorJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel1)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(patientName, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(weight, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
-                                .addComponent(heartRate, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(temperature, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(bloodPressure, javax.swing.GroupLayout.Alignment.LEADING))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(patientName, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
+                            .addComponent(weight, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
+                            .addComponent(heartRate)
+                            .addComponent(bloodPressure)
+                            .addComponent(temperature)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(74, 74, 74)
                         .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(310, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(235, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,7 +188,7 @@ public class DoctorJPanel extends javax.swing.JPanel {
                 .addComponent(add)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -213,6 +229,10 @@ public class DoctorJPanel extends javax.swing.JPanel {
             
         }
     }//GEN-LAST:event_addActionPerformed
+
+    private void bloodPressureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bloodPressureActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bloodPressureActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

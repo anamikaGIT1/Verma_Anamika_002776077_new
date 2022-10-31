@@ -9,7 +9,7 @@ import ui.CommunityAdmin.CommunityAdminJPanel;
 
 /**
  *
- * @author anweshsingh
+ * @author anamika verma
  */
 public class PatientJPanel extends javax.swing.JPanel {
 
@@ -18,6 +18,7 @@ public class PatientJPanel extends javax.swing.JPanel {
      */
     PersonJPanel PersonJPanel = new PersonJPanel();
     CommunityAdminJPanel CommunityAdminJPanel = new CommunityAdminJPanel();
+    HospitalAdminJPanel HospitalAdminJPanel = new HospitalAdminJPanel();
     public PatientJPanel() {
         initComponents();
     }
@@ -32,14 +33,41 @@ public class PatientJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         community = new javax.swing.JTextField();
-        search = new javax.swing.JButton();
+        searchHospital = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
+        HospitalTable = new javax.swing.JTable();
+        hospital = new javax.swing.JTextField();
+        searchDoctor = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
         doctorTable = new javax.swing.JTable();
 
-        search.setText("Search");
-        search.addActionListener(new java.awt.event.ActionListener() {
+        setBackground(new java.awt.Color(204, 204, 255));
+
+        searchHospital.setBackground(new java.awt.Color(255, 204, 204));
+        searchHospital.setFont(new java.awt.Font("Verdana", 1, 13)); // NOI18N
+        searchHospital.setText("Search Hospital");
+        searchHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchActionPerformed(evt);
+                searchHospitalActionPerformed(evt);
+            }
+        });
+
+        HospitalTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Hospitals"
+            }
+        ));
+        jScrollPane1.setViewportView(HospitalTable);
+
+        searchDoctor.setBackground(new java.awt.Color(255, 204, 204));
+        searchDoctor.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        searchDoctor.setText(" Search Doctor");
+        searchDoctor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchDoctorActionPerformed(evt);
             }
         });
 
@@ -48,10 +76,10 @@ public class PatientJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Doctors"
+                "Doctor"
             }
         ));
-        jScrollPane1.setViewportView(doctorTable);
+        jScrollPane2.setViewportView(doctorTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -60,32 +88,51 @@ public class PatientJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(186, 186, 186)
-                        .addComponent(community, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(40, 40, 40)
+                        .addComponent(searchHospital))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(225, 225, 225)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(search))))
-                .addContainerGap(231, Short.MAX_VALUE))
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(hospital)
+                            .addComponent(community, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(searchDoctor)))
+                .addGap(68, 68, 68)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(168, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addComponent(community, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(search)
-                .addGap(36, 36, 36)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(159, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addComponent(community, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(searchHospital))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(hospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(searchDoctor)
+                        .addGap(148, 148, 148))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
+    private void searchHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchHospitalActionPerformed
         DefaultTableModel model=(DefaultTableModel) CommunityAdminJPanel.communityTable.getModel();
-        DefaultTableModel model2=(DefaultTableModel) doctorTable.getModel();
-        
+        DefaultTableModel model2=(DefaultTableModel) HospitalTable.getModel();
+        model2.setRowCount(0);
         String Community = community.getText();
         int rows = 0;
         
@@ -100,13 +147,35 @@ public class PatientJPanel extends javax.swing.JPanel {
             rows = rows+1;
             
 }
-    }//GEN-LAST:event_searchActionPerformed
+    }//GEN-LAST:event_searchHospitalActionPerformed
 
+    private void searchDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchDoctorActionPerformed
+        DefaultTableModel model=(DefaultTableModel) HospitalAdminJPanel.doctorDirectory.getModel();
+        DefaultTableModel model2=(DefaultTableModel) doctorTable.getModel();
+        
+        String Hospital = hospital.getText();
+        int rows = 0;
+        
+        for (int count = 0; count < model.getRowCount(); count++){
+            
+            String Doct = (String) model.getValueAt(rows, 1);
+            String Hosp = (String) model.getValueAt(rows, 0);
+            if(Hosp.equals(Hospital)) {
+                model2.addRow(new Object[] {Doct});
+            }
+              
+            rows = rows+1;
+    }//GEN-LAST:event_searchDoctorActionPerformed
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JTable HospitalTable;
     private javax.swing.JTextField community;
-    public javax.swing.JTable doctorTable;
+    private javax.swing.JTable doctorTable;
+    private javax.swing.JTextField hospital;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton search;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton searchDoctor;
+    private javax.swing.JButton searchHospital;
     // End of variables declaration//GEN-END:variables
 }
