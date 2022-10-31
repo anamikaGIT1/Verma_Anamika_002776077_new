@@ -4,12 +4,23 @@
  */
 package model;
 
-import java.util.ArrayList;
-
 /**
  *
- * @author anamikaverma
+ * @author npatel
  */
 public class House {
-    public ArrayList<person> prsn = new ArrayList<person>();
+    private int houseNo;
+
+    public int getHouse() {
+        return houseNo;
+    }
+
+    public void setHouse(int houseNo) {
+        this.houseNo = houseNo;
+    }
+    @Override
+    public String toString(){
+        return String.valueOf(houseNo);
+        
+    }
 }

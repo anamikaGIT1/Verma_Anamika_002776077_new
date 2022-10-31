@@ -1,50 +1,70 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
+
+import java.util.UUID;
 
 /**
  *
- * @author anamikaverma
+ * @author saket
  */
-public class Patient extends person {
-    private int availability;
-    private String DoctorName;
+public class Patient {
     
-    private encounter encounter;
-    
+    private int patientID;
+    private String primaryDoctorName;
+    private String prefferedPharmacy;
+    private VitalSignsHistory vitalSignHistory;
+    // private static int count = 0;
+     
     public Patient() {
-        this.encounter = new encounter();
-    }
-    
-    public String getDoctorName() {
-        return DoctorName;
-    }
-    
-    public void setDoctorName(String DoctorName) {
-        this.DoctorName = DoctorName;
+        this.vitalSignHistory = new VitalSignsHistory();
     }
 
-    public int getAvailability() {
-        return availability;
+    public Patient(int patientID, String primaryDoctorName, String prefferedPharmacy) {
+        this.patientID =  patientID;
+//           count++;
+//        patientID = count;
+        this.primaryDoctorName = primaryDoctorName;
+        this.prefferedPharmacy = prefferedPharmacy;
+       
+    }
+   
+
+    public int getPatientID() {
+        return patientID;
     }
 
-    public void setAvailability(int availability) {
-        this.availability = availability;
-    }
-
-    public encounter getEncounter() {
-        return encounter;
+    public void setPatientID(int patientID) {
+        this.patientID = patientID;
     }
     
-    public void setEncounter(encounter encounter) {
-        this.encounter = encounter;
+   
+    
+    public String getPrimaryDoctorName() {
+        return primaryDoctorName;
+    }
+    
+    public void setPrimaryDoctorName(String primaryDoctorName) {
+        this.primaryDoctorName = primaryDoctorName;
+    }
+    
+    public String getPrefferedPharmacy() {
+        return prefferedPharmacy;
+    }
+    
+    public void setPrefferedPharmacy(String prefferedPharmacy) {
+        this.prefferedPharmacy = prefferedPharmacy;
+    }
+    
+    public VitalSignsHistory getVitalSignHistory() {
+        return vitalSignHistory;
+    }
+    
+    public void setVitalSignHistory(VitalSignsHistory vitalSignHistory) {
+        this.vitalSignHistory = vitalSignHistory;
     }
     
     @Override
     public String toString()
     {
-        return String.valueOf(this.availability);
+        return String.valueOf(this.patientID);
     }
 }

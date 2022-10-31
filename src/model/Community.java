@@ -10,20 +10,10 @@ import java.util.ArrayList;
  *
  * @author npatel
  */
-public class City {
-    private String cityName; 
+public class Community {
     private String communityName;
     private int houseNo;
-   // private ArrayList<Community> communities;
-
-        
-    public String getName() {
-        return cityName;
-    }
-
-    public void setName(String cityName) {
-        this.cityName = cityName;
-    }
+    private ArrayList<House> houses;
 
     public int getHouse() {
         return houseNo;
@@ -39,23 +29,24 @@ public class City {
     public void setCommunity(String communityName) {
         this.communityName = communityName;
     }
-    @Override
-    public String toString(){
-        return cityName;
+    public Community(){
+        this.houses = new ArrayList<>();
+    }
+    public ArrayList<House> getHistory(){
+        return houses;
+    }  
+    public void setHistory(ArrayList<House> houses){
+        this.houses = houses;
+    }
+    public House addNewHouse(){
+        House newHouse = new House();
+        houses.add(newHouse);
+        return newHouse;
         
     }
-   /* public City(){
-        this.communities = new ArrayList<>();
+    @Override
+    public String toString(){
+        return communityName;
+        
     }
-    public ArrayList<Community> getHistory(){
-        return communities;
-    }  
-    public void setHistory(ArrayList<Community> communities){
-        this.communities = communities;
-    }
-    public Community addNewCommunity(){
-        Community newCommunity = new Community();
-        communities.add(newCommunity);
-        return newCommunity;
-    }*/
 }
